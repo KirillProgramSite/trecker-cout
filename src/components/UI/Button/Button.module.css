@@ -1,0 +1,46 @@
+button{
+    transition: .5s background-color ease-in-out, .5s color ease-in-out, .5s transform ease-in-out;
+    border:none;
+    font-family: "Raleway", sans-serif;
+    padding: 5px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    color:white;
+}
+
+.default{
+    border: 1px solid rgb(97, 97, 255);
+    color: rgb(97, 97, 255);
+    background-color: aliceblue;
+}
+
+.default:hover{
+    background-color: rgb(97, 97, 255);
+    color: white;
+}
+
+.primary{
+    background-color: rgb(97, 97, 255);
+}
+
+.primary:hover{
+    background-color: rgb(123, 123, 255);
+}
+
+.danger{
+    background-color: rgb(255, 46, 46);
+}
+
+.danger:hover{
+    background-color: rgb(255, 100, 100);
+}
+
+.warning{
+    background-color: rgb(255, 208, 0);
+    color: rgb(33, 33, 33);
+}
+
+.warning:hover{
+    background-color: rgb(255, 221, 72);
+}
