@@ -22,9 +22,11 @@ interface IBalance{
 
 export interface IUser {
     name: string;
-    surname:string;
+    surname: string;
+    email: string;
+    password: string;
     cards: ICard | [];
-    goals: IGoals;
-    income: IBalance;
-    expenses:IBalance;
+    goals: IGoals | [];
+    income: IBalance | [];
+    expenses:IBalance | [];
 }

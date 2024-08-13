@@ -6,13 +6,14 @@ type ButtonProps = {
    color: "default" | "primary" | "danger" | "warning";
    onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
    children: React.ReactNode;
+   type?: "submit" | "reset" | "button" | undefined;
 }
 
-const Button = ({ color, onClick, children }: ButtonProps) => {
+const Button = ({ color, onClick, children, type }: ButtonProps) => {
     const className = styles[color]; // Динамически выбираем класс по значению color
 
     return (
-        <button className={className} onClick={onClick}>
+        <button className={className} onClick={onClick} type={type}>
             {children}
         </button>
     );
