@@ -7,7 +7,7 @@ import Register from './pages/Register/Register';
 import NotFoundPage from './pages/NotFoundPage';
 import { useEffect, useState } from 'react';
 import { IUser } from './types/user';
-import Login from './pages/Login/Login';
+import Main from './pages/Main/Main';
 
 
 const App = () => {
@@ -25,6 +25,7 @@ const App = () => {
         <Routes>
           <Route path='/' element={<Register setUser={setUser} />} />
           <Route path="*" element={<NotFoundPage />} />
+          <Route path="/main" element={<Main user={user} />} />
         </Routes>
       </BrowserRouter>
     </>

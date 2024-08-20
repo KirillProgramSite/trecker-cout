@@ -5,7 +5,6 @@ import useInput from "../../hook/useInput"
 import styles from './Register.module.css'
 import { IUser } from "../../types/user";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 
 
 
