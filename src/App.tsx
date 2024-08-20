@@ -5,20 +5,19 @@ import { BrowserRouter } from 'react-router-dom';
 
 import Register from './pages/Register/Register';
 import NotFoundPage from './pages/NotFoundPage';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { IUser } from './types/user';
+import Login from './pages/Login/Login';
+
 
 const App = () => {
-  const [user, setUser] = useState<IUser>({
-    name: '',
-    surname: '',
-    email: '',
-    password: '',
-    cards: [],
-    goals: [],
-    income: [],
-    expenses: []
-});
+  const initialUserState: IUser = JSON.parse(localStorage.getItem('user') || '{}');
+
+  const [user, setUser] = useState<IUser>(initialUserState);
+
+  useEffect(() => {
+    localStorage.setItem('user', JSON.stringify(user));
+  }, [user]);
 
   return (
     <>

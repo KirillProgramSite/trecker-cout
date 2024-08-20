@@ -5,6 +5,7 @@ import useInput from "../../hook/useInput"
 import styles from './Register.module.css'
 import { IUser } from "../../types/user";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 
 
@@ -20,31 +21,29 @@ const Register = ({ setUser }: RegisterProps) => {
     const emailVal = useInput();
     const passwordVal = useInput();
 
-    const handleSubmit = (event: React.FormEvent) => {
+    const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault(); 
 
         if (!nameVal.value || !surnameVal.value || !emailVal.value || !passwordVal.value) {
             alert('Please fill in all fields');
             return;
         } else {
-            setUser(prevUser => ({
-                ...prevUser,
+            setUser((prevUser) => ({
+                ...prevUser,  // Spread предыдущего состояния
+                id: 1,
                 name: nameVal.value || '',
                 surname: surnameVal.value || '',
                 email: emailVal.value || '',
                 password: passwordVal.value || '',
-                cards: prevUser.cards,
-                goals: prevUser.goals,
-                income: prevUser.income,
-                expenses: prevUser.expenses
-            }));
+                cards: [],  // Инициализация пустого массива для карт
+                goals: [],  // Инициализация пустого массива для целей
+                income: [],  // Инициализация пустого массива для доходов
+                expenses: [],  // Инициализация пустого массива для расходов
+              }));
+           
 
-            nameVal.reset();
-            surnameVal.reset();
-            emailVal.reset();
-            passwordVal.reset();
 
-            navigate('/welcome');
+            navigate('/main');
         }
 
     }

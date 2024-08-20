@@ -1,4 +1,4 @@
-interface ICard{
+export interface ICard{
     nameCard: string;
     numberCard: number;
     dateCard: string;
@@ -6,13 +6,13 @@ interface ICard{
     balanceCard: number;
 }
 
-interface IGoals{
+export interface IGoals{
     title: string;
     to: number | null;
     from: number;
 }
 
-interface IBalance{
+export interface IBalance{
     name: string;
     category: string; // TODO: enum Category;
     count: number;
