@@ -3,18 +3,11 @@ import { Doughnut } from "react-chartjs-2";
 import {
     Chart as ChartJS,
     ArcElement,  // Регистрация элемента Arc
-    Tooltip,
-    Legend,
-    Title
 } from 'chart.js';
 
-ChartJS.register(ArcElement, Tooltip, Legend);
+ChartJS.register(ArcElement);
 
 const Chart = ({ data }) => {
-    
-    console.log(data);
-    
-
     const pieChartData = {
         labels: ["Расходы", "Цели", "Доходы"],
         datasets: [{

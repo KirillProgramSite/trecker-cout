@@ -26,8 +26,8 @@ export interface IUser {
     surname: string;
     email: string;
     password: string;
-    cards: ICard | [];
-    goals: IGoals | [];
-    income: IBalance | [];
-    expenses:IBalance | [];
+    cards: ICard[];
+    goals: IGoals[];
+    income: IBalance[];
+    expenses:IBalance[];
 }
