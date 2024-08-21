@@ -25,7 +25,7 @@ const App = () => {
         <Routes>
           <Route path='/' element={<Register setUser={setUser} />} />
           <Route path="*" element={<NotFoundPage />} />
-          <Route path="/main" element={<Main user={user} />} />
+          <Route path="/main" element={<Main setUser={setUser} user={user} />} />
         </Routes>
       </BrowserRouter>
     </>

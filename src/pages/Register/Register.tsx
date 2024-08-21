@@ -20,7 +20,7 @@ const Register = ({ setUser }: RegisterProps) => {
     const emailVal = useInput();
     const passwordVal = useInput();
 
-    const handleSubmit = async (event: React.FormEvent) => {
+    const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault(); 
 
         if (!nameVal.value || !surnameVal.value || !emailVal.value || !passwordVal.value) {

@@ -1,4 +1,5 @@
 export interface ICard{
+    id: number;
     nameCard: string;
     numberCard: number;
     dateCard: string;
@@ -7,12 +8,14 @@ export interface ICard{
 }
 
 export interface IGoals{
+    id: number;
     title: string;
     to: number | null;
     from: number;
 }
 
 export interface IBalance{
+    id: number;
     name: string;
     category: string; // TODO: enum Category;
     count: number;

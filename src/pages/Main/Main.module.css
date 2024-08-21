@@ -1,0 +1,4 @@
+.formAddCard{
+    display: flex;
+    flex-direction: column;
+}
