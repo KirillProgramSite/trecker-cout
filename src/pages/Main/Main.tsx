@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 
 import Button from "../../components/UI/Button/Button";
-import Chart from "../../components/Chart";
+// import Chart from "../../components/Chart";
 import Title from "../../components/UI/Title/Title";
 
-import useInput from "../../hook/useInput"
+// import useInput from "../../hook/useInput"
 
 import { ICard, IGoals, IUser } from "../../types/user";
 import Modal from '../../components/UI/Modal/Modal,';
-import Input from '../../components/UI/Input/Input';
 
-import styles from './Main.module.css'
+
+// import styles from './Main.module.css'
+import CardForm from '../../components/CardModal';
+import CardElement from '../../components/CardElement/CardElement';
 
 
 interface MainProps {
@@ -36,9 +38,11 @@ const Main: React.FC<MainProps> = ({ user, setUser }) => {
                     <p>You don't have any cards in this app. Click below to add</p>
                 </div>
             ) : (
-                user.cards.map((card: ICard) => (
-                    <div key={card.ownerCard}>{card.nameCard}</div> // Пример рендеринга карточек
-                ))
+                    <div style={{display: 'flex', flexWrap: "wrap"}}>
+                        {user.cards.map((card: ICard) => (
+                            <CardElement key={card.id} user={user} setUser={setUser} card={card} />
+                        ))}
+                    </div>
 
             )}
 
@@ -47,7 +51,7 @@ const Main: React.FC<MainProps> = ({ user, setUser }) => {
             <Modal
                 visible={cardModal}
                 title='Add card in your profile'
-                content={<FormAddCard setModal={setCardModal} setUser={setUser} user={user} />}
+                content={<CardForm setModal={setCardModal} setUser={setUser} user={user} />}
                 onClose={onClose}
             />
             <Title lv={2}>My Goals</Title>
@@ -64,55 +68,4 @@ const Main: React.FC<MainProps> = ({ user, setUser }) => {
         </div>
     );
 };
-
-const FormAddCard = ({ user, setUser, setModal }) => {
-    const nameCardValue = useInput()
-    const numberCardVal = useInput()
-    const dateCard = useInput()
-    const ownerCard = useInput();
-
-    const handleSubmit = (event: React.FormEvent) => {
-        event.preventDefault();
-
-        if (!nameCardValue.value || !numberCardVal.value || !dateCard.value || !ownerCard.value) {
-            alert('Please fill in all fields');
-            return;
-        }
-
-        const newCard: ICard = {
-            id: Date.now(),
-            nameCard: nameCardValue.value,
-            numberCard: Number(numberCardVal.value),
-            dateCard: dateCard.value,
-            ownerCard: ownerCard.value,
-            balanceCard: 0,
-        }
-
-        setUser({
-            ...user,
-            cards: [...user.cards, newCard]
-        })
-
-        nameCardValue.reset()
-        numberCardVal.reset()
-        dateCard.reset()
-        ownerCard.reset()
-
-        setModal(false)
-    }
-
-
-    return (
-        <>
-            <form onSubmit={handleSubmit} className={styles.formAddCard} action="">
-                <Input value={nameCardValue.value} onChange={nameCardValue.onChange} placeholder='Name Card' />
-                <Input value={numberCardVal.value} onChange={numberCardVal.onChange} placeholder='Number Card' />
-                <Input value={dateCard.value} onChange={dateCard.onChange} placeholder='Date Card' />
-                <Input value={ownerCard.value} onChange={ownerCard.onChange} placeholder='Owner Card' />
-                <Button color='primary'>Add new card</Button>
-            </form>
-        </>
-    )
-}
-
 export default Main

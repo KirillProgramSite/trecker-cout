@@ -1,7 +1,7 @@
 export interface ICard{
     id: number;
     nameCard: string;
-    numberCard: number;
+    numberCard: string;
     dateCard: string;
     ownerCard: string;
     balanceCard: number;
