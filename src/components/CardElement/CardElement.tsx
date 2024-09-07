@@ -39,6 +39,14 @@ const InfoCard: React.FC<CardElementProps> = ({ card, user, setUser }) => {
     });
   };
 
+  const deleteCard = () => {
+    const delCard = user.cards.filter((c) => c.id !== card.id)
+    setUser({
+      ...user,
+      cards: delCard,
+    })
+  }
+
   return (
     <form style={{display: "flex", flexDirection: "column"}} onSubmit={handleSubmit}>
       <Input value={numberCardVal.value} onChange={numberCardVal.onChange} placeholder="Number Card" />
@@ -46,6 +54,7 @@ const InfoCard: React.FC<CardElementProps> = ({ card, user, setUser }) => {
       <Input value={ownerCard.value} onChange={ownerCard.onChange} placeholder="Owner Card" />
       <Input value={balanceCard.value} onChange={balanceCard.onChange} placeholder="Balance" />
       <Button color="primary">Edit Card</Button>
+      <Button onClick={deleteCard} color="danger">Delete Card</Button>
     </form>
   );
 };

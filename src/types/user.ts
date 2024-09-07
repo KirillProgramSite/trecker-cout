@@ -10,8 +10,8 @@ export interface ICard{
 export interface IGoals{
     id: number;
     title: string;
-    to: number | null;
-    from: number;
+    to: number;
+    total: number;
 }
 
 export interface IBalance{
