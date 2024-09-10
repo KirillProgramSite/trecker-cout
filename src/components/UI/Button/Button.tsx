@@ -9,7 +9,7 @@ type ButtonProps = {
    type?: "submit" | "reset" | "button" | undefined;
 }
 
-const Button = ({ color, onClick, children, type }: ButtonProps) => {
+const Button: React.FC<ButtonProps> = ({ color, onClick, children, type }) => {
     const className = styles[color]; // Динамически выбираем класс по значению color
 
     return (

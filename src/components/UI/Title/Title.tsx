@@ -8,7 +8,7 @@ type TitleProps = {
     textCenter?: boolean;
 }
 
-const Title = ({ children, lv, textCenter }: TitleProps) => {
+const Title: React.FC<TitleProps> = ({ children, lv, textCenter }) => {
 
     const Tag = `h${lv}` as keyof JSX.IntrinsicElements;
     const className = textCenter ? styles.textCenter : '';
