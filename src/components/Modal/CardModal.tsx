@@ -1,8 +1,9 @@
 import React from "react";
-import Input from "./UI/Input/Input";
-import Button from "./UI/Button/Button";
-import { ICard, IUser } from "../types/user";
-import useInput from '../hook/useInput';
+import { ICard, IUser } from "../../types/user";
+import useInput from "../../hook/useInput";
+import Input from "../UI/Input/Input";
+import Button from "../UI/Button/Button";
+
 interface CardFormProps {
   user: IUser;
   setUser: React.Dispatch<React.SetStateAction<IUser>>;

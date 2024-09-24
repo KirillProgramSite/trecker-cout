@@ -1,0 +1,13 @@
+.goal{
+    display: flex;
+    align-items: center;
+}
+
+.goalProgress{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.goalProgress progress{
+    background-color: green;
+}

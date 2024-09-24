@@ -4,19 +4,19 @@ import Button from "../../components/UI/Button/Button";
 // import Chart from "../../components/Chart";
 import Title from "../../components/UI/Title/Title";
 
-import useInput from "../../hook/useInput"
+// import useInput from "../../hook/useInput"
 
 import { ICard, IGoals } from "../../types/user";
 import Modal from '../../components/UI/Modal/Modal,';
 
 
 // import styles from './Main.module.css'
-import CardForm from '../../components/CardModal';
+import CardForm from '../../components/Modal/CardModal';
 import CardElement from '../../components/CardElement/CardElement';
 import GoalElement from '../../components/GoalElement/GoalElement';
 // import Input from '../../components/UI/Input/Input';
 import { IProps } from '../../types/props';
-import GoalsForm from '../../components/GoalsForm';
+import GoalsForm from '../../components/Modal/GoalsForm';
 
 
 // const GoalsForm: React.FC<ModalProps> = ({ user, setUser, setModal }) => {
@@ -110,7 +110,7 @@ const Main: React.FC<IProps> = ({ user, setUser }) => {
                 </div>
             ) : (
                 user.goals.map((goal: IGoals) => (
-                    <GoalElement key={goal.id} goal={goal} setUser={setUser} />
+                    <GoalElement key={goal.id} user={user} goal={goal} setUser={setUser} />
                 ))
             )}
 

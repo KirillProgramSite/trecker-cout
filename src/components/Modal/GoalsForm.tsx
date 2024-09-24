@@ -1,9 +1,10 @@
 import React from 'react';
-import { ModalProps } from '../types/props';
-import Input from './UI/Input/Input';
-import Button from './UI/Button/Button';
-import { IGoals } from '../types/user';
-import useInput from '../hook/useInput';
+import { ModalProps } from '../../types/props';
+import useInput from '../../hook/useInput';
+import { IGoals } from '../../types/user';
+import Input from '../UI/Input/Input';
+import Button from '../UI/Button/Button';
+
 
 const GoalsForm: React.FC<ModalProps> = ({ user, setUser, setModal }) => {
     const titleVal = useInput();
